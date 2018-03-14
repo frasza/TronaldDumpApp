@@ -10,8 +10,11 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import CoreData
+import SVProgressHUD
 
 class TronaldDumpViewController: UIViewController {
+    
+    var faves = [Fave]()
     
     let tronaldDumpHTTP = "https://api.tronalddump.io/random/quote"
     
@@ -41,10 +44,17 @@ class TronaldDumpViewController: UIViewController {
     
     @IBAction func faveTheQuote(_ sender: UIButton) {
         
-        let newFaveQuote = Fave(context: context)
-        newFaveQuote.quote = quoteLabel.text!
-        
-        saveFaveQuote()
+        if faves.contains(where: { $0.quote == quoteLabel.text! }) {
+            SVProgressHUD.showInfo(withStatus: "Quote already faved.")
+            SVProgressHUD.dismiss(withDelay: 1)
+        } else {
+            let newFaveQuote = Fave(context: context)
+            newFaveQuote.quote = quoteLabel.text!
+            
+            faves.append(newFaveQuote)
+            
+            saveFaveQuote()
+        }
         
     }    
     
@@ -52,6 +62,8 @@ class TronaldDumpViewController: UIViewController {
     //MARK: - Networking
     /***************************************************************/
     func getRandomQuote() {
+        
+        loadFaves()
         
         Alamofire.request(tronaldDumpHTTP, method: .get, parameters: nil).responseJSON { (response) in
             if response.result.isSuccess {
@@ -94,6 +106,22 @@ class TronaldDumpViewController: UIViewController {
             try context.save()
         } catch {
             print("Error saving quote, \(error)")
+        }
+        
+    }
+    
+    func loadFaves(with request: NSFetchRequest<Fave> = Fave.fetchRequest(), predicate: NSPredicate? = nil) {
+        
+        let request: NSFetchRequest<Fave> = Fave.fetchRequest()
+        
+        if let predicate = predicate {
+            request.predicate = predicate
+        }
+        
+        do {
+            faves = try context.fetch(request)
+        } catch {
+            print("Error loading faves, \(error)")
         }
         
     }
