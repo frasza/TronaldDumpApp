@@ -25,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tronalddump" translatesAutoresizingMaskIntoConstraints="NO" id="A6c-HK-pve">
-                                <rect key="frame" x="63" y="81" width="250" height="182"/>
+                                <rect key="frame" x="62.5" y="81" width="250" height="182"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="o1c-rA-gd8"/>
                                     <constraint firstAttribute="height" constant="182" id="rNs-rq-Fqm"/>
@@ -37,9 +37,12 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTg-y2-rdn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTg-y2-rdn">
                                 <rect key="frame" x="320" y="34" width="39" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="3sw-pb-Tn3"/>
+                                    <constraint firstAttribute="width" constant="39" id="xfD-tz-in0"/>
+                                </constraints>
                                 <state key="normal" backgroundImage="refresh"/>
                                 <connections>
                                     <action selector="fetchNewQuote:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Q8-X7-bRS"/>
@@ -49,10 +52,12 @@
                         <color key="backgroundColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wKw-Mx-P4o" firstAttribute="top" secondItem="A6c-HK-pve" secondAttribute="bottom" constant="50" id="00T-bX-X2Z"/>
+                            <constraint firstItem="MTg-y2-rdn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="QeU-85-uFc"/>
                             <constraint firstItem="wKw-Mx-P4o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="SV7-y0-f3e"/>
                             <constraint firstItem="A6c-HK-pve" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="61" id="U4A-kP-bo8"/>
                             <constraint firstItem="A6c-HK-pve" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VvH-rb-LLd"/>
                             <constraint firstItem="wKw-Mx-P4o" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="WkQ-01-cV0"/>
+                            <constraint firstItem="MTg-y2-rdn" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="toq-T7-0Cd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
