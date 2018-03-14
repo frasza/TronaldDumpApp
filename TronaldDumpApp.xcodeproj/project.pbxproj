@@ -12,6 +12,8 @@
 		3A62521E205927180013027F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A62521C205927180013027F /* Main.storyboard */; };
 		3A625220205927180013027F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A62521F205927180013027F /* Assets.xcassets */; };
 		3A625223205927180013027F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A625221205927180013027F /* LaunchScreen.storyboard */; };
+		3AECAF5C205940A900917A2F /* FavesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AECAF5B205940A900917A2F /* FavesViewController.swift */; };
+		3AECAF5F2059421D00917A2F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AECAF5D2059421D00917A2F /* Model.xcdatamodeld */; };
 		E21A28DFE9052E59B634285A /* Pods_TronaldDumpApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85E397763711AB69F3B24B3C /* Pods_TronaldDumpApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,8 @@
 		3A62521F205927180013027F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A625222205927180013027F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A625224205927180013027F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AECAF5B205940A900917A2F /* FavesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavesViewController.swift; sourceTree = "<group>"; };
+		3AECAF5E2059421D00917A2F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		6F0C4743E5CC079AC931F940 /* Pods-TronaldDumpApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TronaldDumpApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TronaldDumpApp/Pods-TronaldDumpApp.release.xcconfig"; sourceTree = "<group>"; };
 		85E397763711AB69F3B24B3C /* Pods_TronaldDumpApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TronaldDumpApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		897D97AF8B050A257C564B35 /* Pods-TronaldDumpApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TronaldDumpApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TronaldDumpApp/Pods-TronaldDumpApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,13 +74,47 @@
 			isa = PBXGroup;
 			children = (
 				3A625218205927180013027F /* AppDelegate.swift */,
-				3A62521A205927180013027F /* TronaldDumpViewController.swift */,
-				3A62521C205927180013027F /* Main.storyboard */,
-				3A62521F205927180013027F /* Assets.xcassets */,
-				3A625221205927180013027F /* LaunchScreen.storyboard */,
+				3AECAF602059424900917A2F /* Controllers */,
+				3AECAF612059425000917A2F /* Views */,
+				3AECAF622059425500917A2F /* Models */,
+				3AECAF632059425A00917A2F /* Supporting Files */,
 				3A625224205927180013027F /* Info.plist */,
 			);
 			path = TronaldDumpApp;
+			sourceTree = "<group>";
+		};
+		3AECAF602059424900917A2F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A62521A205927180013027F /* TronaldDumpViewController.swift */,
+				3AECAF5B205940A900917A2F /* FavesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3AECAF612059425000917A2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A62521C205927180013027F /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3AECAF622059425500917A2F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3AECAF5D2059421D00917A2F /* Model.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3AECAF632059425A00917A2F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A62521F205927180013027F /* Assets.xcassets */,
+				3A625221205927180013027F /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B8EEE7D7A03038FAD9AE965C /* Pods */ = {
@@ -221,8 +259,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AECAF5C205940A900917A2F /* FavesViewController.swift in Sources */,
 				3A62521B205927180013027F /* TronaldDumpViewController.swift in Sources */,
 				3A625219205927180013027F /* AppDelegate.swift in Sources */,
+				3AECAF5F2059421D00917A2F /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +449,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3AECAF5D2059421D00917A2F /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3AECAF5E2059421D00917A2F /* Model.xcdatamodel */,
+			);
+			currentVersion = 3AECAF5E2059421D00917A2F /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3A62520D205927180013027F /* Project object */;
 }

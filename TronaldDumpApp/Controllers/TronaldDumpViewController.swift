@@ -9,10 +9,13 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import CoreData
 
 class TronaldDumpViewController: UIViewController {
     
     let tronaldDumpHTTP = "https://api.tronalddump.io/random/quote"
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     @IBOutlet weak var tronaldDumpImage: UIImageView!
     @IBOutlet weak var quoteLabel: UILabel!
@@ -26,11 +29,25 @@ class TronaldDumpViewController: UIViewController {
     //MARK: - Fetch New Button
     /***************************************************************/
     
-    @IBAction func fetchNewQuote(_ sender: UIButton) {
+    @IBAction func fetchNewQuote(_ sender: UIBarButtonItem) {
         
         getRandomQuote()
         
     }
+    
+    
+    //MARK: - Fave the Quote
+    /***************************************************************/
+    
+    @IBAction func faveTheQuote(_ sender: UIButton) {
+        
+        let newFaveQuote = Fave(context: context)
+        newFaveQuote.quote = quoteLabel.text!
+        
+        saveFaveQuote()
+        
+    }    
+    
     
     //MARK: - Networking
     /***************************************************************/
@@ -65,6 +82,19 @@ class TronaldDumpViewController: UIViewController {
     func updateQuoteLabel(with quote: String) {
         
         quoteLabel.text = quote
+        
+    }
+    
+    //MARK: - Data Manipulation Methods
+    /***************************************************************/
+    
+    func saveFaveQuote() {
+        
+        do {
+            try context.save()
+        } catch {
+            print("Error saving quote, \(error)")
+        }
         
     }
 
