@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1B-R1-33y">
-                                <rect key="frame" x="167" y="309" width="40" height="40"/>
+                                <rect key="frame" x="167.5" y="309" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="s3I-uh-ecO"/>
                                     <constraint firstAttribute="height" constant="40" id="zue-Ls-QG2"/>
@@ -96,9 +96,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" red="0.2235008180141449" green="0.22354587912559509" blue="0.22349801659584045" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="LGi-NX-koI">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="SD6-zT-ISO" id="3BI-1x-iNg"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FaveCell" textLabel="Xpl-gZ-zm8" style="IBUITableViewCellStyleDefault" id="lCH-tE-Y87">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lCH-tE-Y87" id="UTc-bq-OGX">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>

@@ -54,7 +54,7 @@ class FavesViewController: UITableViewController {
         context.delete(faves[indexPath.row])
         faves.remove(at: indexPath.row)
         
-        tableView.reloadData()
+        saveFaveQuote()
         
     }
     
@@ -67,9 +67,28 @@ class FavesViewController: UITableViewController {
         
     }
     
-    func loadFaves() {
+    //MARK: - Data Manipulation Methods
+    /***************************************************************/
+    
+    func saveFaveQuote() {
+        
+        do {
+            try context.save()
+        } catch {
+            print("Error saving quote, \(error)")
+        }
+        
+        tableView.reloadData()
+        
+    }
+    
+    func loadFaves(with request: NSFetchRequest<Fave> = Fave.fetchRequest(), predicate: NSPredicate? = nil) {
         
         let request: NSFetchRequest<Fave> = Fave.fetchRequest()
+        
+        if let predicate = predicate {
+            request.predicate = predicate
+        }
         
         do {
             faves = try context.fetch(request)
@@ -77,7 +96,38 @@ class FavesViewController: UITableViewController {
             print("Error loading faves, \(error)")
         }
         
+        tableView.reloadData()
     }
     
+}
+
+//MARK: - Search Delegate Extension
+/***************************************************************/
+
+extension FavesViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        let request: NSFetchRequest<Fave> = Fave.fetchRequest()
+
+        let predicate = NSPredicate(format: "quote CONTAINS[cd] %@", searchBar.text!)
+        
+        loadFaves(with: request, predicate: predicate)
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text?.count == 0 {
+            
+            loadFaves()
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+            
+        }
+        
+    }
     
 }
