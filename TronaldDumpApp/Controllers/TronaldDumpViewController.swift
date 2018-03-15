@@ -54,6 +54,11 @@ class TronaldDumpViewController: UIViewController {
             faves.append(newFaveQuote)
             
             saveFaveQuote()
+            
+            SVProgressHUD.showSuccess(withStatus: "Quote faved.")
+            SVProgressHUD.dismiss(withDelay: 1, completion: {
+                self.getRandomQuote()
+            })
         }
         
     }    
